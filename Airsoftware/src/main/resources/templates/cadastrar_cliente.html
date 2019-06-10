@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html layout:decorate="~{teste}">
+    <head>
+        <title>AirSoftware</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+        <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+        <link rel="stylesheet" href="css/aos.css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        
+    </head>
+    <body>
+
+        
+        <div class="site-wrap" layout:fragment="conteudo">
+
+            <div class="site-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10">
+                                                  <h2 class="h3 mb-3 text-black">Cadastro Cliente</h2>
+                        </div>
+                        <div class="col-md-12">
+
+                            <form action="salvarcliente" method="post" th:object="${cliente}">
+
+                                <div class="p-3 p-lg-5 border">
+
+                                    <center><b>Dados</b></center>
+                                    <br>
+                                    <input type="hidden" readonly="" class="form-control" id="c_subject" name="id" th:field="*{id}">
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="c_subject" class="text-black">Nome </label>
+                                            <input type="text" class="form-control" id="c_subject" name="nome" th:field="*{nome}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="c_fname" class="text-black">CPF <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="c_fname" name="cpf" th:field="*{cpf}" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="c_lname" class="text-black">Data de Nascimento	 <span class="text-danger">*</span></label>
+                                            <input type="date" class="form-control" id="c_lname" name="dataNascimento" th:field="*{dataNascimento}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="c_fname" class="text-black">Sexo <span class="text-danger">*</span></label>
+
+                                            <select class="form-control" id="c_fname" name="sexo" th:field="*{sexo}" required>
+                                             <option value="escolha">Escolha o Sexo</option>
+                                             <option value="Feminino">Feminino</option>
+                                             <option value="Masculino">Masculino</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <br>
+                                    <center ><b>Endereço</b></center>
+                                    <br>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="c_fname" class="text-black" >CEP <span class="text-danger">*</span>
+                                                <input type="text" class="form-control" id="c_fname" name="cep" th:field="*{cep}" required></label>
+                                        </div>
+                                    </div>
+                                    
+                            
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="c_fname" class="text-black">Rua <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="c_fname" name="logradouro" th:field="*{logradouro}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="c_fname" class="text-black">Numero <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="c_fname" name="numero" th:field="*{numero}" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="c_lname" class="text-black">Complemento <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="c_lname" name="complemento" th:field="*{complemento}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="c_fname" class="text-black">Bairro <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="c_fname" name="bairro" th:field="*{bairro}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="c_fname" class="text-black">Cidade <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="c_fname" name="cidade" th:field="*{cidade}" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="c_lname" class="text-black">Estado <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="c_lname" name="estado" th:field="*{estado}" required>
+                                        </div>
+                                    </div>
+
+
+                                    <br>
+                                    <br>
+                                    <center ><b>Contato</b></center>
+                                    <br>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <label for="c_fname" class="text-black">Telefone <span class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" id="c_fname" name="telefone" th:field="*{telefone}" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="c_lname" class="text-black">Celular	 <span class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" id="c_lname" name="celular" th:field="*{celular}" required>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <center ><b>Informações de Acesso</b></center>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="c_fname" class="text-black">E-mail <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="c_fname" name="email2" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="c_fname" class="text-black">Confirmar E-mail <span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="c_fname" name="email" th:field="*{email}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="c_fname" class="text-black">Senha <span class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" id="c_fname" name="senha" th:field="*{senha}" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label for="c_fname" class="text-black">Confirmar Senha <span class="text-danger">*</span></label>
+                                            <input type="password" class="form-control" id="c_fname" name="senha2" required>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <div class="col-lg-6">
+                                                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Limpar">
+                                            </div>
+                                        
+
+                                            <div class="col-lg-6">
+
+                                                <input type="submit" class="btn btn-primary btn-lg btn-block" value="Salvar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                         
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+   
+        
+
+        <footer class="site-footer border-top">
+            <div class="container">
+                <div class="row pt-5 mt-5 text-center">
+                    <div class="col-md-12">
+                        <p>
+                            Copyright @2019 All rights reserved
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+
+    <script src="js/main.js"></script>
+   
+
+</body>
+</html>

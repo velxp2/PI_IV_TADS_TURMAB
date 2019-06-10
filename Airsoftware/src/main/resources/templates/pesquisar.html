@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html layout:decorate="~{teste}">
+    <head>
+        <title>AirSoftware</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+        <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+        <link rel="stylesheet" href="css/aos.css">
+
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+
+        <div class="site-wrap" layout:fragment="conteudo">
+
+            <div class="site-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="h3 mb-3 text-black">Pesquisar produtos</h2>
+                        </div>
+
+                        <div class="site-blocks-table">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="product-name">Produto</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="produto : ${produto}">
+                                        <td class="product-name" th:text="${produto.nome}"></td>
+                                      
+                                        <td><a th:href="@{/editarproduto/{id}(id=${produto.id})}" class="btn btn-primary btn-sm">EDITAR</a>
+                                        
+                                           
+
+                                        </td>
+                                        <td><a th:href="@{/removerproduto/{id}(id=${produto.id})}" class="btn btn-primary btn-sm">EXCLUIR</a></td>
+                               
+                                
+                               
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <footer class="site-footer border-top">
+                <div class="container">
+                    <div class="row pt-5 mt-5 text-center">
+                        <div class="col-md-12">
+                            <p>
+                                Copyright @2019 All rights reserved
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/aos.js"></script>
+
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
