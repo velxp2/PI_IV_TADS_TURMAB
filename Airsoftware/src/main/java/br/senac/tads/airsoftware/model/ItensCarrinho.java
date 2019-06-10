@@ -30,7 +30,7 @@ public class ItensCarrinho implements Serializable {
     @JoinTable(name = "itenscarrinho_produto",
             joinColumns = @JoinColumn(name = "itenscarrinho_id"),
             inverseJoinColumns = @JoinColumn(name = "produto_id"))
-    private Set<Produto> produtos;
+    private Produto produto;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venda_id")
     private Venda venda;
@@ -41,10 +41,10 @@ public class ItensCarrinho implements Serializable {
     public ItensCarrinho() {
     }
 
-    public ItensCarrinho(Long id, int quantidade, Set<Produto> produtos, Venda venda, Cliente cliente) {
+    public ItensCarrinho(Long id, int quantidade, Produto produto, Venda venda, Cliente cliente) {
         this.id = id;
         this.quantidade = quantidade;
-        this.produtos = produtos;
+        this.produto = produto;
         this.venda = venda;
         this.cliente = cliente;
     }
@@ -65,12 +65,12 @@ public class ItensCarrinho implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public Set<Produto> getProdutos() {
-        return produtos;
+    public Produto getProdutos() {
+        return produto;
     }
 
-    public void setProdutos(Set<Produto> produtos) {
-        this.produtos = produtos;
+    public void setProdutos(Produto produto) {
+        this.produto = produto;
     }
 
     public Venda getVenda() {

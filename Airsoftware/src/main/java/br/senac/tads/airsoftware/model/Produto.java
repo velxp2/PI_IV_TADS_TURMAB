@@ -33,7 +33,7 @@ public class Produto implements Serializable {
     private int quantidade;
     private String categoria;
     private String imagem;
-    @ManyToMany(mappedBy = "produtos", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "produto", fetch = FetchType.LAZY)
     private Set<ItensCarrinho> itensCarrinho;
 
     public Produto() {
