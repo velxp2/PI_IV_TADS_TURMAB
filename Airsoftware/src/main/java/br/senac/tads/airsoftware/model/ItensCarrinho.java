@@ -34,19 +34,15 @@ public class ItensCarrinho implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venda_id")
     private Venda venda;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
     
     public ItensCarrinho() {
     }
 
-    public ItensCarrinho(Long id, int quantidade, Produto produto, Venda venda, Cliente cliente) {
+    public ItensCarrinho(Long id, int quantidade, Produto produto, Venda venda) {
         this.id = id;
         this.quantidade = quantidade;
         this.produto = produto;
         this.venda = venda;
-        this.cliente = cliente;
     }
 
     public Long getId() {
@@ -81,13 +77,4 @@ public class ItensCarrinho implements Serializable {
         this.venda = venda;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-     
 }
