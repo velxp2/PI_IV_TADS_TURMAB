@@ -1,7 +1,6 @@
 package br.senac.tads.airsoftware.model;
 
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,10 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,10 +22,8 @@ public class ItensCarrinho implements Serializable {
     private Long id;
     @Column(nullable = false)
     private int quantidade;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "itenscarrinho_produto",
-            joinColumns = @JoinColumn(name = "itenscarrinho_id"),
-            inverseJoinColumns = @JoinColumn(name = "produto_id"))
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "produto_id")
     private Produto produto;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venda_id")

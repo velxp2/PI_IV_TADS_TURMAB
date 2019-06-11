@@ -1,7 +1,6 @@
 package br.senac.tads.airsoftware.model;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -51,13 +50,13 @@ public class Cliente implements Serializable {
     private String email;
     private String senha;
     private boolean admin;
-    @OneToMany(mappedBy = "cliente")
-    private Set<ItensCarrinho> itensCarrinho;    
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    private Set<Venda> venda;
 
     public Cliente() {
     }
 
-    public Cliente(Long id, String nome, String sexo, String dataNascimento, String cpf, String logradouro, int numero, String cidade, String estado, String bairro, String cep, String complemento, String celular, String telefone, String email, String senha, boolean admin, Set<ItensCarrinho> itensCarrinho) {
+    public Cliente(Long id, String nome, String sexo, String dataNascimento, String cpf, String logradouro, int numero, String cidade, String estado, String bairro, String cep, String complemento, String celular, String telefone, String email, String senha, boolean admin, Set<Venda> venda) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
@@ -75,7 +74,7 @@ public class Cliente implements Serializable {
         this.email = email;
         this.senha = senha;
         this.admin = admin;
-        this.itensCarrinho = itensCarrinho;
+        this.venda = venda;
     }
 
     public Long getId() {
@@ -214,12 +213,13 @@ public class Cliente implements Serializable {
         this.admin = admin;
     }
 
-    public Set<ItensCarrinho> getItensCarrinho() {
-        return itensCarrinho;
+    public Set<Venda> getVenda() {
+        return venda;
     }
 
-    public void setItensCarrinho(Set<ItensCarrinho> itensCarrinho) {
-        this.itensCarrinho = itensCarrinho;
+    public void setVenda(Set<Venda> venda) {
+        this.venda = venda;
     }
+
     
 }

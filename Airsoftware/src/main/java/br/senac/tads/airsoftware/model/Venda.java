@@ -35,6 +35,7 @@ public class Venda implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    
 
     public Venda() {
     }

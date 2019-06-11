@@ -7,7 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -33,7 +33,7 @@ public class Produto implements Serializable {
     private int quantidade;
     private String categoria;
     private String imagem;
-    @ManyToMany(mappedBy = "produto", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY)
     private Set<ItensCarrinho> itensCarrinho;
 
     public Produto() {
